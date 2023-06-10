@@ -1,0 +1,108 @@
+Cores CSS
+
+Resumo:
+- Tipos e declarações de cores
+- Background:
+    - color
+    - image
+    - gradient
+-------------------------------------------------------------------------------------------------------------------------------------
+color
+
+Tipos:
+background-color - fundo para caixas
+color - cor para textos/fonts
+border-color - bordas de caixas
+
+Podemos declarar cores das seguintes maneiras:
+palavra-chave (keyword ou named-color) - blue, red, green, transparent, etc
+hexadecimal - #ffffff, #000000, etc.
+funções - rgb, rgba, hsl, hsl, hsla
+
+Tipos de declaração:
+
+Valor padrão:
+color: currentcolor;
+
+Named color:
+color: red;
+color: orange;
+color: tan;
+color: rebeccapurple;
+
+hexadecimal:
+Os valores vão de 0-9 e depois a,b,c,d,e,f e representam a tonalidade ou transparencia
+color: #090; /* resumindo os numeros e sem transparencia
+color: #009900; /* declarando todas as tonalidades Red, Green, Blue */
+color: #090a; /* resumindo com transparencia */
+color: #009900aa; /* declaração detalhada com transparencia */
+
+RGB:
+color: rgb(255,0,0); /* declarando vermelho vivo */
+color: rgb(255,0,0,0.6); /* declarando vermelho com transparencia */
+color: rgb(255,0,0,60%); /* podemos declarar transparencia com % */
+
+HSL
+hsl(Graus da roda de cores, saturação da cor, luminosidade, transparencia)
+ou
+Hue, Saturation, Lumiance
+color: hsl(180,100%,50%,20%);
+color: hsla(30 100% 50% / 0.6);
+
+Global values
+
+color: currentcolor;
+color: inheritr; /* Herda a cor do elemento anterior */
+color: initial; /* Volta a sua cor inicial */
+color: unset; /* Pega a cor do contexto */
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+background
+
+background-color
+Exemplo:
+CSS
+h1 {
+    height: 100px;
+    border: 7px dashed red;
+    background-color: rgb(55,100,50);
+    background-color: green;
+}
+
+background-image
+Exemplo:
+background-image: url(https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AAmUDGe.img?w=36&h=36&q=60&m=6&f=png&u=t);
+
+background-repeat: no-repeat; Não repete a imagem do fundo
+background-repeat: repeat-y; Repete apenas no eixo y
+background-repeat: repeat-x; Repete apenas no eixo x
+
+background-position: center; Centralizar imagem
+background-position: right center; Centralizar no canto direito
+
+background-size: contain; Ajusta a imagem do tamanho da caixa
+background-size: cover; Ajusta a imagem para cobrir todo o background da caixa
+background-size: 50%; Um valor ajusta apenas a largura
+background-size: 25% 50%; Dois valores ajustam a largura e altura
+
+Para cobrir a borda
+background-origin: border-box; /*Começa da borda*/
+background-origin: border-box; /* Padrão*/
+background-origin: padding-box; /* Começa a partir do padding*/
+
+background-clip: border-box; /*Começa da borda*/
+background-clip: content-box; /* Padrão*/
+background-clip: padding-box; /* usando com o origin: padding-box fica na borda*/
+background-attachment:fixed; /* fixar imagem*/
+
+/* Shorthand background*/
+background: rgb(55,100,50) url(https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AAmUDGe.img?w=36&h=36&q=60&m=6&f=png&u=t) no-repeat right top / 50px border-box content-box fixed;
+/* a primeira definição border-box sobrepoe o origin e a segunda o clip */
+
+Gradient background
+/*background: linear-gradient(270deg, red, yellow, green);*/
+/*background: radial-gradient(red, yellow, green);*/
+/*background: radial-gradient(rgba(255,255,255,0),rgba(255,0,0,0.5));*/
+/* Shorthand background gradient*/
+background: radial-gradient(rgba(255,255,255,0),rgba(255,0,0,0.5)), url(https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AAmUDGe.img?w=36&h=36&q=60&m=6&f=png&u=t) no-repeat right top / 50px border-box content-box fixed;

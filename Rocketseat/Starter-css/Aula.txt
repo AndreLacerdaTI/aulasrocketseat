@@ -1,0 +1,127 @@
+Resumo
+- Força ou prioridade das declarações de estilo no html ou CSS
+- shorthand é a redução da declaração de todas as modificações
+de um elemento na mesma linha
+- Função import
+- features serve para incluir/importar novos pacotes de estilos para navegadores
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Import
+Não é recomendado usar o @import para fonts pois pode deixar o seu site lento
+@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Força CSS no elemento
+
+Inline > Tag Style > CSS
+
+Inline - Declaração direta na tag - (HTML - <h1 style=""></h1>)
+Tag Style - Declaração no header com o style - (HTML - <style>h1{}</style>)
+CSS - Declaração no arquivo CSS - (CSS - h1{})
+
+- Os elementos são lidos em modo cascata
+- Elementos de mesma força usará a ultima declaração de estilo sobrepondo as demais
+- Elementos de força diferente usará a declaração mais forte sobrepondo as demais
+
+O CSS é a melhor pratica para estilizar um HTML, mesmo sendo o mais "fraco"
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Especificidade
+
+Força 
+0 - Declaração universal - (CSS *{})
+1 - Elementos selector e pseudo-elements -(CSS - ::before) e (CSS - ::after)
+10 - Classes e atributos - (HTML - class="title") e (CSS - .title {})
+100 - ID - (HTML - id="teste") e (CSS - #teste{})
+1000 - Style inline - (HTML - style="")
+10000 - Important (Não devemos usar a não ser como ultimo recurso) - (CSS - h1 {color:blue !important; } )
+
+OBS: o important só deve ser usado caso esteja importanto uma biblioteca e não consiga sobrescrever algum estilo,
+não devemos usar em situações normais
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Para aplicar CSS em um elemento que está dentro de outro elemento que possui classe
+EX:
+HTML
+<h1> class="title" id="my-title">Titulo <strong>alo</strong></h1>
+
+CSS
+#my-title, #my-title strong{color: green;}
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+At-rules
+@import - incluir css externo
+@media - regras condicionais para dispositivos
+@font-face - fontes externas
+@keyframes - Animação
+
+CSS - 
+@import url("http://local.com/style.css");
+@media (min-width: 500px){}
+@font-face {}
+@keyframes nameofanimation{}
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Shorthand
+Resume todas as propriedades em uma linha
+Se tiver muitas propriedades com valores parecidos podem aparecer problemas
+EX:
+h1 {
+    /* background properties */
+    background-color: #000;
+    background-image: url(images/bg.gif);
+    background-repeat: no-repeat;
+    background-position: left top;
+
+    /* background shorthand*/
+    background: #000 url(images/bg.gif) no-repeat left top;
+
+    /* font properties */
+    font-style: italic;
+    font-weight: bold;
+    font-size: .8em;
+    line-height: 1.2;
+    font-family: Arial, sans-serif;
+
+    /* font shorthand */ 
+    font: bold italic .8em/1.2 Arial, sans-serif;
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Funções
+
+Recebem argumentos dos parenteses
+
+@import url("http://urlaqui.com/style.css");
+
+{
+    color: rgb(255, 0, 100);
+    width: calc(100% - 10px);
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Vendor Prefixes
+
+Permite que browsers adicione 'features' para adicionar novidades do CSS
+
+CSS - 
+p {
+    -webkit-background-clip: text; /*Chrome, Safari, iOS e Android*/
+	-moz-background-clip: text; /* Mozilla (Firefox) */
+	-ms-background-clip: text; /* Internet Explorer ou Edge*/
+	-o-background-clip: text; /* Opera */
+}
+
+Consultar suporte dos browsers:
+
+https://ireade.github.io/which-vendor-prefix
+
+https://caniuse.com

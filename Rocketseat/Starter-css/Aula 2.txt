@@ -1,0 +1,327 @@
+Resumo:
+- Tipos de dados como tamanho, angulo, etc
+- Unidades de medida absolutas, relativas e porcentagens: px, em, %
+- Usar px e % para formatar os tamanhos dos elementos
+- Cuidado com o padrão das tags com block ou inline e os espaçamentos que cada uma permite
+- as ordens dos px nas declarações de 4 valores seguem o sentido do relogio
+- padding e border precisa do box-sizing para controlar o tamanho da caixa 
+no width e height
+- Não usar outline para estilizar, se preciso use para acessibilidade
+
+
+TIPOS DE DADOS
+-----------------------------------------------------------------
+Tipo numericos
+<integer> numeros inteiros -10 ou 234
+<number> numero decimal -2.4, 64 ou 0.234
+<dimension> é um <number> com uma unidade junto - 90deg(graus), 2s(segundos), 8px(pixels)
+<percentagem> frações de outro numero - 50%
+-----------------------------------------------------------------
+
+Unidades comuns
+
+<length> Representa um valor de distancia: px, em, vw
+<angle> Representa um angulo: deg(angulo graus), rad(radianos), turn(giro, ex: 0.25 turn)
+<time> Representa um tempo: s, ms
+<resolution> Representa resoluções para dispositivos: dpi
+-----------------------------------------------------------------
+
+Distancias absolutas <length>
+São fixas e não alteram seu valor.
+
+Unidade        Nome                 Equivalencia
+cm            Centrimetros          1cm= 96px/2.54
+in            Inches (polegadas)    1in = 2.54cm = 96px
+px            Pixels                1px = 1/96th of 1in
+
+Recomendado: px
+Não recomendado: cm
+-----------------------------------------------------------------
+
+Distancias relativas
+São relativas a algum outro valor, pode ser o elemento pai, ou root, ou o tamanho da tela
+Se adapta melhor a diferentes tamanhos de tela
+
+Unidade:        Relativo a:
+em              Tamanho da font do pai
+rem             Tamanho da font do elemento raiz (root/html)
+vw              1% da viewport width. Divide em pedaços o tamanho da tela
+vh              1% da viewport height. Divide em pedaços o tamanho da tela
+
+Mudar o tamanho da font padrão usado pelo navegador
+CSS
+html{
+    font-size: 14px
+}
+
+ou
+:root{}
+
+-----------------------------------------------------------------
+
+Porcentagens
+<div>
+    background-color: blue;
+</div>
+html{
+    font-size: 50%;
+}
+
+-----------------------------------------------------------------
+
+Funções CSS
+
+rgb()
+hsl()
+url()
+calc()
+
+Exemplo:
+
+HTML
+<div class="box"></div>
+
+CSS
+body {
+  height: 100vh;
+  margin: 0;
+}
+.box {
+  height: calc(50% + 20px);
+  width: 100%;
+  background-image: url(http://source.unsplash.com/random);
+  background-repeat: no-repeat;
+  background-position: right 50px;
+  
+  
+}
+
+-----------------------------------------------------------------
+
+Strings e indentificadores
+
+Identificadore: red, black, green, etc.
+
+.box::after {
+    content:"Aqui vem alguma mensagem";
+    color: white;
+}
+
+-----------------------------------------------------------------
+
+Box Sizing
+
+Define que o tamanho da caixa será definido pela borda pois por padrão 
+é definido pelo conteudo+bordas
+
+CSS
+* {
+    box-sizing: border-box; /* Definir como padrão para todo o CSS */
+}
+
+div {
+    width: 100px;
+    height: 100px;
+    border: 1px solid red;
+    margin: 10%;
+    padding: 0 20px;
+
+    box-sizing: border-box;
+}
+
+-----------------------------------------------------------------
+
+Display - block ou inline
+
+block:
+- Ocupa toda a linha, colocando o proximo elemento abaixo
+- width e height são respeitados
+- padding, margin, border irão funcionar normalmente
+
+inline:
+- Elemento ao lado do outro
+- width e height não funcionam
+- Somente valores horizontais de margin, padding e border
+
+Por padrão são:
+Tags block: <p> <div> <section>, todos os heading <h1> <h2>...
+Tags inline: <a> <strong> <span> <em>
+
+Exemplo:
+
+HTML
+<p>
+  Um <strong> conteudo </strong> qualquer
+</p>
+
+<p>
+  Um <div> conteudo </div> qualquer
+</p>
+
+Invertendo os displays
+
+CSS
+div {
+  height: 100px;
+  border: 1px solid red;
+  width: 10px;
+  display: inline;
+}
+span {
+  width: 10px;
+  height: 100px;
+  border: 1px solid green;
+  display: block;
+}
+
+Comportamentos dos blocos inline e block com as margens
+
+O block aceita a margem top, bottom, left e right. Enquanto o inline só aceita no left e right
+
+div {
+  margin: 20px;
+}
+span {
+  margin: 100px;
+}
+
+-----------------------------------------------------------------
+
+Margin
+
+margin: 12px 16px 10px 4px; Aplica cada margem separadamente
+
+margin: 12px 16px 0px; 1º valor é para top, 2º right e left, 3º bottom
+
+margin: 12px 16px; 1º top e bottom, 2º left e right
+
+margin: 12px; Aplica a mesma margem para todos os lados
+
+Cuidado com o margin collapsing - top se junta ao bottom
+Se entre 2 elementos block (um em cima do outro) tem o uma margem, 
+elas não se somam, ou seja, vai contar apenas 1 dos valores
+Exemplo:
+
+HTML
+<div>block</div>
+<section>Elemento abaixo</section>
+
+CSS
+* {
+  margin: 0;
+}
+
+div, section {
+  border: 1px solid red;
+  width: 100px;
+  height: 100px;
+  margin: 8px 0;
+}
+div {
+  margin-bottom: 8px;
+}
+
+Agora se 2 elementos inline possuem margem laterais(top e bottom não funcionam),
+eles somam os espaçamentos entre eles.
+Exemplo:
+* {
+  margin: 0;
+}
+
+div, section {
+  /*margin: 20px;*/
+  border: 1px solid red;
+  width: 100px;
+  height: 100px;
+  margin: 10px 100px;
+  
+  display: inline;
+}
+
+Margin auto
+O margin: auto; em um elemento block vai calcular apenas as margens laterais
+Exemplo:
+
+CSS
+div{margin: auto;}
+ou
+div{margin: 10px auto;} /*Definindo a margem top e bottom como 10px*/
+
+-----------------------------------------------------------------
+
+Padding
+
+Preenchimento interno da caixa
+ _______________________
+|           | 2px       |
+|           |           |
+| 1px -- padding -- 1px |
+|           | 2px       |       
+|___________|___________|
+
+A orgem dos px na declaração segue o desenho relogio
+
+padding: 2px 1px 2px 1px; /* padding: top right bottom left;
+
+padding: 12px 16px 0px; 1º valor é para top, 2º right e left, 3º bottom
+
+padding: 12px 16px; 1º top e bottom, 2º left e right
+
+padding: 12px; Aplica o mesmo padding para todos os lados
+
+Exemplo:
+CSS
+* {
+  margin: 0;
+}
+
+div, section {
+  border: 1px solid red;
+  padding: 10px 2em 8px 50%;
+}
+
+-----------------------------------------------------------------
+
+border
+
+value: <border-style> | <border-width> | <border-color>
+
+style: solid | dotted | dashed | double | groove | ridge | inset | outset
+width: <length> (px e em)
+color: <color>
+
+Exemplo:
+CSS
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+div, section {
+  width: 200px;
+  height: 200px;
+  margin: 0% auto;
+  border: 20px dotted red;
+  border-top: 20px dotted blue;
+  
+}
+section {
+  border: 10px dashed red;
+  border-bottom: none;
+}
+
+-----------------------------------------------------------------
+
+Outline
+
+- Diferente do border ele não modifica o tamanho da caixa 
+pois não faz parte da caixa (ele sobrepoe outro elemento que estiver ao lado)
+- Pode ser diferente de um retangulo
+- Não permite ajuste individual (homogeneo em todas as laterais)
+- Mais usado para acessibilidade. Ex: indicar um input, botão, etc
+
+Exemplo:
+CSS
+div{outline: yellow 4px solid;}
+
+-----------------------------------------------------------------

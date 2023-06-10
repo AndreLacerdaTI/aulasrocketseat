@@ -1,0 +1,189 @@
+Font Family
+
+Importar usando link pois é o mais rapido
+De preferencia importar do site Fonts Google: https://fonts.google.com/
+
+Exemplo:
+HTML
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div>Logo</div>
+    <div>Menu</div>
+  </header>
+  <main>
+    <p>Teste teste adasdfbndhrjrthr</p>
+  </main>
+  <aside>Infos adicionais</aside>
+  <footer>Rodape</footer>
+</body>
+
+CSS
+
+body {
+  display: grid;
+  margin:0;
+  height:100vh;
+  grid-template-areas:
+    "header header"
+    "main aside"
+    "footer footer";
+  
+  grid-template-rows: 30px 1fr 40px;
+  grid-template-colums: 1fr 80px;
+}
+header {
+  grid-area: header;
+  background-color: green;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding: 0 8px;
+}
+main {
+  grid-area: main;
+  background-color: #808080;
+  color: white;
+}
+aside {
+  grid-area: aside;
+  background-color: blue;
+}
+
+footer {
+  grid-area: footer;
+  background-color: white;
+}
+
+p {
+  font-family: "Arial", Times, sans-serif;
+  font-weight: bold;
+  /* bold, normal,etc */
+  font-style: italic;
+  /* oblique, italic, etc */
+  font-size: 48px;
+  /* Ou 
+  font-size: 1.2rem; Pega a referencia do root element
+  font-size: 1.2em; Pega a referencia do parent 
+  */
+  
+  font-family: 'Anton', sans-serif;
+}
+
+----------------------------------------------------------------------------------------------
+
+Font-variant
+
+Transformar letras minusculas em letras maiusculaas menores
+CSS
+p {
+  font-variant:small-caps;
+}
+
+----------------------------------------------------------------------------------------------
+
+Font Strech
+
+Altera o espaçamento das fonts
+
+CSS
+font-stretch: 50%; de 50 a 200%
+font-stretch: condensed;
+font-stretch: expanded;
+
+----------------------------------------------------------------------------------------------
+
+letter-spacing e word-spacing
+
+Espaçamento entre as letras
+letter-spacing: 10px;
+letter-spacing: 1em;
+
+Espaçamento entre as palavras
+word-spacing: 1em;
+word-spacing: 1px;
+
+----------------------------------------------------------------------------------------------
+line-height
+
+Espaçamento entre linhas
+
+line-height: 2.6;
+
+----------------------------------------------------------------------------------------------
+
+text-transform
+
+Altera as letras para minuscula e maiuscula
+
+Primeira letra maiuscula
+text-transform: Capitalize;
+
+Todas as letras maiusculas
+text-transform: uppercase;
+
+Todas as letras minusculas
+text-transform: lowercase;
+
+----------------------------------------------------------------------------------------------
+text-decoration
+
+
+Riscar texto
+text-decoration: line-through;
+Linha em cima
+text-decoration: overline;
+
+Underline
+text-decoration: underline;
+text-decoration: underline solid;
+text-decoration: underline wavy;
+text-decoration: underline dashed;
+text-decoration: underline double;
+text-decoration: underline dotted;
+
+Podemos colocar tudo junto
+text-decoration: line-through overline underline;
+
+Trocando a cor do underline
+text-decoration: underline solid red;
+
+----------------------------------------------------------------------------------------------
+
+text-align
+
+text-align: center;
+text-align: left;
+text-align: right;
+text-align: justify;
+
+----------------------------------------------------------------------------------------------
+
+text-shadow
+
+
+Como usar:
+text-shadow: x y e blur, x y e blur
+
+CSS
+text-shadow: 0px 0px 10px red, 10px 10px 1px green;
+
+----------------------------------------------------------------------------------------------
+
+shorthand font
+
+Como usar:
+style, variant, weight, stretch, size/line-height family
+font: italic normal bold normal size/line-height familia...;
+
+CSS
+font: italic 2em/2 Helvetica, Arial, sans-serief;
+
+----------------------------------------------------------------------------------------------
+
+
+

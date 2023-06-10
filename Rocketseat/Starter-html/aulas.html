@@ -1,0 +1,118 @@
+<!-- Titulos e paragrafos -->
+<h1>Sobre mim</h1>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas natus dolore aperiam distinctio, libero placeat eaque accusamus dolores ullam eos? Vero, iusto! Quam sed numquam, eius quia rerum asperiores vitae.</p>
+<h2>Nascimento</h2>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas natus dolore aperiam distinctio, libero placeat eaque accusamus dolores ullam eos? Vero, iusto! </p>
+<p>Quam sed numquam, eius quia rerum asperiores vitae.</p>
+<h2>Trabalho</h2>
+<h3>Primeiro trabalho</h3>
+Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae praesentium perspiciatis magni obcaecati, culpa deleniti in iste cum ea, quas minus recusandae vel aliquam. Ipsum ea officiis iste a itaque?
+
+<!-- Quebra de linha -->
+<br>
+
+<!-- Listas -->
+<ul>
+    <li>1º elemento da lista</li>
+    <li>2º elemento da lista</li>
+</ul>
+<!-- Citações -->
+<blockquote cite="https://www.google.com"> 
+    Uma citação <code>&lt;blockquote&gt;</code>
+</blockquote>
+
+<p>De acordo com <a href="https://www.google.com">
+    <cite>Pagina MDN blockquote</cite></a>:
+</p>
+
+<p>O elemento quote - <code>&lt;q&gt;</code> - é <q cite="https://www.google.com">usado para citações curtas que não precisam de paragrafos ou quebras de linhas.</q> -- <a href="https://www.google.com"><cite>MDN q page</cite></a>.</p>
+
+<!-- Abreviações -->
+
+<p>Usamos <abbr title="Hypertext Markup Language">HTML</abbr> para estruturar nossos documentos da web.</p>
+
+<!-- Detalhes de contato -->
+<address>
+    <p>Andre Lacerda <br>
+        <strong>Carmopolis de Minas, MG</strong>
+    </p>
+</address>
+
+<!-- Lista de descrição -->
+<h2>Glossário</h2>
+<dl>
+    <dt>Hypertext</dt>
+    <dd>É um hiper texto com possibilidades</dd>
+</dl>
+<!-- Decrição de codigos -->
+<pre>   
+    Python
+    <code>
+        int = 0
+        if i > 0:
+            print("Maior que 0")
+        </i>
+    </code>
+</pre>
+
+<!-- Elementos genericos -->
+<!-- Separar elementos para serem usados no JS -->
+<div class="cart">
+    <span>Camiseta</span>
+    <span>R$ 99,99</span>
+</div>
+
+<!-- Hyperlinks -->
+<a href="" download="">Conteúdo</a> <!-- faz o download ao inves de abrir o link -->
+<a href="http://google.com"target="_self">Google</a> <!-- _self Padrão | Abre o link na mesma aba -->
+<a href="http://google.com" target="_blank">Google</a> <!-- Abre o link em uma nova aba -->
+
+<p>Contatos</p>
+
+<ul>
+    <li><a href="http://site.com.br" target="_blank">Website</a></li>
+    <li><a href="mailto:andrelacerda.ti@gmail.com">Email</a></li>
+    <li><a href="tel:+5537999834368">Telefone</a></li>
+</ul>
+<!-- Navegação de fragmentos - Links que vão direto para o conteudo -->
+<p>Saiba mais</p>
+<ul>
+    <li><a href="#about">Sobre mim</a></li>
+    <li><a href="#history">Historia</a></li>
+    <li><a href="#works">Trabalhos</a></li>
+</ul>
+
+<h1 id="about">Sobre mim</h1>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo ullam cupiditate, non tempore reprehenderit soluta unde sit dolores accusantium quidem! Ea expedita ipsum maiores consectetur excepturi nihil quam, magni vero?
+
+<h2 id="history">Historia</h2>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus perspiciatis dolore velit est aliquam, quas illo cupiditate enim voluptatem nulla. Fugiat odit reprehenderit error rem commodi enim quibusdam cum tempora.
+
+<h2 id="works">Trabalhos</h2>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, assumenda excepturi. Libero pariatur esse eius provident odio ut facilis enim sapiente, ducimus eveniet corrupti tempora ipsam amet facere neque officia?
+
+<a href="http://google.com" title="Ir para google">
+    <h1>Google</h1>
+    <p>Claro que posso</p>
+    <img src="https://source.unsplash.com/random" alt="">
+</a>
+
+<a href="index.html" title="Ir para html">Abrir Hyperlinks</a>
+<br>
+<!-- Entrar em um diretorio -->
+<a href="outros/a-element.html" title="Ir para html">Abrir Hyperlinks</a>
+<br>
+<!-- Sair/voltar em um diretorio -->
+<a href=".../outros" title="Ir para html">Abrir Hyperlinks</a>
+<br>
+<!-- Raiz diretorio -->
+<a href="./index.html" title="Ir para html">Abrir Hyperlinks</a>
+<br>
+<!-- Mesma pasta -->
+<a href="../index.html" title="Ir para html">Abrir Hyperlinks</a>
+<br>
+
+
+<a href="google.com">relativo - sem especificar o caminho vai procurar na pasta</a>
+<a href="https://google.com">absoluto - ir para o caminho especifico</a>
+

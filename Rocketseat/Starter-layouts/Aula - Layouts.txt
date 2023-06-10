@@ -1,0 +1,269 @@
+static
+
+Por padrão os elementos são static e seguem o fluxo normal da pagina
+----------------------------------------------------------------------------------------------------------------
+relative
+
+Altera a posição do elemento, mas mantém o restante no fluxo normal
+Ele deixa seu espaço reservado em branco e muda a posição do objeto
+
+HTML
+<div class="box box1"></div>
+<div class="box box2"></div>
+<div class="box box3"></div>
+
+CSS
+.box {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 8px;
+}
+
+.box1 {
+  background-color: red;
+  position: relative;
+  left: 100px;
+  top: 80px
+}
+
+.box2 {
+  background-color: green;
+}
+
+.box3 {
+  background-color: blue;
+}
+
+----------------------------------------------------------------------------------------------------------------
+
+absolute
+Por padrão é absoluto em relação a qualquer elemento pois ele considera o pai como a pagina inteira
+Entretanto se o elemento pai for relative ele se posiciona de acordo com o pai
+O absolute elimina o seu espaço no fluxo normal e cria uma "nova camada" acima do dos demais
+
+HTML
+<div class="box box1"></div>
+<div class="box box2"></div>
+<div class="box box3"></div>
+
+CSS
+.box {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 8px;
+}
+
+.box1 {
+  background-color: red;
+  position: absolute;
+  left: 100px;
+  top: 80px
+}
+
+.box2 {
+  background-color: green;
+}
+
+.box3 {
+  background-color: blue;
+}
+
+----------------------------------------------------------------------------------------------------------------
+
+fixed
+
+Cria uma nova camada fixa na tela, vai sobrepor o restante dos elementos (Como se fosse uma post-it colado em cima da tela)
+
+Exempço:
+CSS
+.box1 {
+  background-color: red;
+  position: absolute;
+  left: 100px;
+  top: 80px
+}
+
+----------------------------------------------------------------------------------------------------------------
+
+z-index
+
+É usado para organizar as camadas de elementos, atribuindo um valor maior ou menor 
+para dizer se aquele elemento vai sobrepor os outros
+Caso não tenha um z-index declarado os elementos vão ir se sobrepondo em sequencia do ultimo até o primeiro
+
+Exemplo:
+CSS
+.box {
+  width: 50px;
+  height:50px;
+  margin-bottom:8px;
+}
+.box1 {
+  background-color: red;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  z-index: 4;
+}
+
+.box2 {
+  background-color: green;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 3;
+  
+}
+
+.box3 {
+  background-color: blue;
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  z-index: 2;
+}
+
+----------------------------------------------------------------------------------------------------------------
+
+flex
+
+É usado para alinhar elemetos dentro de outras caixas
+
+Exemplo:
+HTML
+<div class="container">
+  <div class="box blue"></div>
+  <div class="box red"></div>
+  <div class="box green"></div>
+</div>
+
+CSS
+body {
+  height: 100vh;
+  margin: 0;
+  display:flex;
+  align-items:center;
+}
+.container {
+  width:100vw;
+  display:flex;
+  justify-content: center;
+  /*flex-direction:column;*/
+}
+.box {
+  width: 50px;
+  height:50px;
+  /*margin-bottom:8px;*/
+}
+.blue {
+  background-color: red;
+}
+
+.red {
+  background-color: green;
+}
+
+.green {
+  background-color: blue;
+}
+
+----------------------------------------------------------------------------------------------------------------
+
+grid
+
+Definir divisão da pagina 
+Fixar ou deixar flexivel alturas e larguras
+
+Exemplo:
+HTML
+<body>
+  <header>Topo</header>
+  <main>Conteudo</main>
+  <aside>Infos adicionais</aside>
+  <footer>Rodape</footer>
+</body>
+CSS
+body {
+  display: grid;
+  margin:0;
+  height:100vh;
+  grid-template-areas:
+    "header header"
+    "main aside"
+    "footer footer";
+  
+  grid-template-rows: 30px 1fr 40px;
+  grid-template-colums: 1fr 80px;
+}
+header {
+  grid-area: header;
+  background-color: green;
+}
+main {
+  grid-area: main;
+  background-color: red;
+}
+aside {
+  grid-area: aside;
+  background-color: blue;
+}
+
+footer {
+  grid-area: footer;
+  background-color: gray;
+}
+
+----------------------------------------------------------------------------------------------------------------
+
+display flex
+
+Separar por exemplo um header entre logo e menu horizontalmente
+
+Exemplo:
+HTML
+<body>
+  <header>
+    <div>Logo</div>
+    <div>Menu</div>
+  </header>
+  <main>Conteudo</main>
+  <aside>Infos adicionais</aside>
+  <footer>Rodape</footer>
+</body>
+
+CSS
+body {
+  display: grid;
+  margin:0;
+  height:100vh;
+  grid-template-areas:
+    "header header"
+    "main aside"
+    "footer footer";
+  
+  grid-template-rows: 30px 1fr 40px;
+  grid-template-colums: 1fr 80px;
+}
+header {
+  grid-area: header;
+  background-color: green;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding: 0 8px;
+}
+main {
+  grid-area: main;
+  background-color: red;
+}
+aside {
+  grid-area: aside;
+  background-color: blue;
+}
+
+footer {
+  grid-area: footer;
+  background-color: gray;
+}
+
+----------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,7 @@
+HTML
+- ALT+Z - Fazer a quebra de linha de uma tag shorthand (muito longa)
+
+
+Visual Code
+- Clicar no inicio da linha e segurar alt vai criar varios ponteiros de alteração, 
+sendo possivel digitar em varias linhas ao mesmo tempo

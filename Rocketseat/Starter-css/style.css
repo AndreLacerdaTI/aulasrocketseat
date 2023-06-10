@@ -1,0 +1,22 @@
+/* 
+Import - Não é recomendado usar o @import para fonts pois pode deixar o seu site lento
+@import 'https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap'
+ 
+Força CSS no elemento: Inline (Declaração direta no elemento) > Tag Style > CSS
+Os elementos são lidos em modo cascata, portanto a ultima declaração de estilo será aplicada
+*/
+* {
+    box-sizing: border-box;
+}
+strong {
+    color: red;
+}
+
+h1 {
+    width: 100px;
+    height: 100px;
+    border: 1px solid red;
+    margin: 10%;
+    padding: 0 20px;
+
+}
