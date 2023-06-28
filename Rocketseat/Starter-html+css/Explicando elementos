@@ -1,0 +1,268 @@
+Seletores
+Conecta um elemento HTML com o CSS a fim de alternar o elemento
+
+Tipos
+
+    * Element selector
+        - Todos os elementos HTML
+        ex: h1 {}, title {}, div {}
+
+    * ID Selector
+        - Um elemento que tenha um atributo 'id'
+        - Cada id deve ser unico
+        ex: id="titulo" / #id {}
+
+    * Class selector
+        - Podemos usar em mais de um elemento
+        - Podemos usar mais de uma classe no mesmo elemento
+        ex: <h1 class="red big">Título da página</h1>
+            <p class="red big">Conteúdo da minha página</p>
+
+            .red {
+                color: red;
+            }
+
+            .big {
+                font-size: 3em;
+            }
+
+    * Attribute Selector
+        - Um elemento que tenha um atributo específico
+        ex:
+        <h1 title="Algum titlulo">Título da página</h1>
+        <p title="Conteúdo da página">Conteúdo da minha página</p>
+
+        [title]{ color:orange; }
+
+    * Pseudo Class Selector
+        - Elementos em um estado específico
+        ex:
+            <h1 class="red big">Título da página</h1>
+            <p class="red big">Conteúdo da minha página</p>
+
+            p:hover {
+                color: red;
+            }
+
+            h1:hover {
+                color: red;
+            }
+
+    * Multiplos elementos
+        - É possível selecionar múltiplos elementos e aplicar alguma regra CSS para todos eles.
+        ex:
+            h1, p, .title, .title:hover {
+                color: red;
+            }
+
+Combinators
+    * Descendant combinator
+        - Identificado por um espaço entre os seletores
+        - Busca um elemento dentro de outro, mesmo que existam outros elementos no caminho
+        ex:
+        <body>
+            <article>
+                <h2>Um Título</h2>
+            </article>
+        </body>
+
+        CSS
+        
+        body article h2 {
+            color: red;
+        }
+
+    * Child combinator
+        - Selecionar filhos para receber formatação
+        ex: selecionando apenas o segundo li
+        <div>
+            <ul>
+                <li>Item 1</li>
+            </ul>
+            <ul>
+                <li>Item 2</li>
+            </ul>
+        </div>
+        
+        Indicamos o "caminho" do elemento que queremos
+        
+        CSS
+        ul > ul > li {
+            color:blue;
+        }
+
+    * Adjacent sibling combinator
+        - Identificado pelo sinal + entre dois seletores
+        - Seleciona somente o elemento do lado direito que é irmão direto na hierarquia
+
+        <h1>
+            Título
+        </h1>
+        <p>
+            Esse é um parágrafo
+        </p>
+        <p>
+            Mais um parágrafo
+        </p>
+        
+        CSS
+        
+        Selecionando o irmão proximo (do lado direito)
+        h1 + p {
+            color: red;
+        }
+
+        Selecionando todos os irmão da hierarquia
+        h1 ~ p {
+            color: red;
+        }
+
+Pseudo Classes
+    * First child
+        - "Testa" o primeiro elemento e se corresponde aplica o CSS
+        ex:
+        ul li: first-child{} = Se o primeiro elemento é um li: aplicamos o CSS
+        Exemplo que não funcionaria, pois o primeiro elemento é um h3 :
+        <ul>
+            <h3>Palavras bonitas</h3>
+            <li>Gratidão</li>
+            <li>Esperança</li>
+            <li>Fé</li>
+        </ul>
+        Exemplo que funciona, pois o primeiro elemento é um li:
+        <ul>
+            <li>Gratidão</li>
+            <li>Esperança</li>
+            <li>Fé</li>
+        </ul>
+
+        CSS
+
+        ul li: first-child{
+            color: red;
+        }
+    
+    * nth-of-type
+        - Seleciona o elemento como se fosse uma lista
+        - Você deve colocar o indice do elemento (1,2,3...)
+
+        <article>
+            <h3>Primeiro indice 1</h3>
+            <p>Segundo indice 2 </p>
+            <p>Terceiro indice 3</p>
+        </article>
+
+        CSS
+
+        Selecionando o terceiro elemento
+        article p:nth-of-type(3) {
+            font-weight: bold;
+        }
+    
+    * nth-child
+        - É quando queremos selecionar o filho de um grupo de elementos.
+        ex:
+
+        <article>
+            <h3>Primeiro elemento h3</h3>
+            <p>Primeiro elemento p </p>
+            <p>Segundo elemento p </p>
+        </article>
+
+        Contamos apenas o tipo de elemento que estamos procurando, no caso desconsiderando o h3
+        Selecionando apenas o segundo p:
+
+        article p:nth-child(2) {
+            font-weight: bold;
+          }
+    
+    * nth-child odd e even
+        - Selecionando elementos impares ou pares
+        <ul>
+            <li>Gratidão</li>
+            <li>Esperança</li>
+            <li>Fé</li>
+            <li>Liberdade</li>
+          </ul>
+        
+        CSS
+        Pares:
+        ul li:nth-child(even) {
+            color: gray;
+          }
+
+        Impares:
+        ul li:nth-child(odd) {
+            color: gray;
+          }
+        
+Ações do usuarios
+    
+    * hover
+        - Quando passamos o mouse por cima do objeto
+        <a>Teste</a>
+        CSS
+        a:hover {
+            color: red;
+        }
+        
+    * focus
+      - Quando o objeto está em foco
+        <a>Teste</a>
+        CSS
+        a:focus {
+            color: red;
+        }
+    
+    * disabled e required
+      - Também podemos usar atributos para selecionar elementos no CSS
+
+      <input type="text" disabled>
+
+      CSS
+      input:disabled {
+        background-color: green;
+      }
+
+      <input type="text" required>
+
+      CSS
+      input:required {
+        background-color: red;
+      }
+
+    * Estudar e ver mais pseudo Classes
+      - Os que estiverem em vermolho não são recomendados
+      - Os que possuem um tubo de ensaio está sendo testado/desenvolvido
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
+
+Pseudo-elements
+
+      * before
+        - Adiciona um pseudo-elemento antes do elemento selecionado.
+      <ul>
+        <li>Gratidão</li>
+        <li>Esperança</li>
+        <li>Fé</li>
+        <li>Liberdade</li>
+      </ul>
+      CSS
+      li::before {
+        content: "> "
+      }
+
+      * after
+        - Adiciona um pseudo-elemento depois do elemento selecionado.
+      li::after{
+        content: ";"
+      }
+      * first-line
+        -  Pega a primeira linha de um texto.
+      p::first-line {
+        font-weight: bold;
+    }
+
+    Documentação
+    
+    https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements
+

@@ -1,0 +1,548 @@
+<!-- Strong block -->
+
+<p>texto block com <strong style="background: green;">inline</strong> dentro </p>
+
+<div style="background: green;" > Outro texto </div>
+
+<!-- Tables -->
+
+<table>
+    <tr>
+        <td> Hora </td>
+        <td> 20:00 </td>
+    </tr>
+    <tr>
+        <td> Hora </td>
+        <td> 20:37 </td>
+    </tr>
+</table>
+
+<!-- Tableless -->
+
+<div style="float:left" >esquerda</div>
+<div style="float:right" >direita</div>
+<div style="clear: both;"> normal flow</div>
+
+<!-- Flexbox -->
+
+<div class="flexbox" >
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+</div>
+
+CSS 
+
+.flexbox{
+    display:flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+ou
+.flexbox{
+    display:flex;
+    flex-direction: column;
+}
+
+.item:nth-child(1){
+    order:1;
+}
+
+<!-- Terminologia -->
+
+* Flex Container - Uma div container que será estilizada
+
+* Nesting - é a definição de um item que contem outros itens
+
+    <div class="container" >
+        <div class="item" ></div>
+        <div class="item" ></div>
+        <div class="item" ></div>
+    </div>
+
+* Eixos - principal e cruzado
+
+    Quando estilizamos um display como flex e não mudamos sua direção
+    ele estará com o flex-direction como row, que é o padrão
+
+    Quando alteramos o flex-direction para column, invertemos esse eixo
+    e ele passa a ser vertical
+
+    Exemplos de estilização em CSS:
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; // joga todos os elementos para o final da linha
+        height: 100vh;
+    }
+
+* Flex sizing 
+    Usando flex: 1;
+    Ajustando os itens para preencherem os espaços do flex container
+    Os itens seguirão o tamanho variavel da pagina e preencherão automaticamente os espaços
+
+    CSS
+
+    .container{
+        display:flex;
+        border: 1px solid red;
+        height: 80vh;
+    }
+    
+    .item{
+        background-color: gray;
+        border: 1px solid;
+        flex: 1;
+    }
+    
+* Flex Direction
+    Usamos o flex-direction para mudar a direção dos itens
+    Podemos usar:
+    flex-direction: row; - padrão que coloca os itens em linha
+    flex-direction: column - coloca os itens em colunas na vertical
+    flex-direction: row-reverse; - inverte posicionando os itens da direta para esquerda
+    flex-direction: column-reverse; - inverte posicionando os itens de baixo para cima
+
+    CSS
+    .container {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+
+* flex-wrap
+    Se uma linha está cheia, ele cria uma nova linha embaixo automaticamente
+    Podemos escolher opções de alinhamento e de ordenação usando: justify-content e flex-wrap: wrap-reverse;
+    <div class="box">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+        <div>D</div>
+    </div>
+      CSS
+      
+        .box{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            
+            border: 1px dashed red;
+        }
+        .box div {
+            border: 1px solid;
+            
+            width:80px;
+        }
+
+* Flex flow
+    Podemos usar uma ou mais propriedades de alinhamento usando o "flex-flow: ;"
+    Podemos usar row/column + wrap/wrap-reverse
+    Ex:
+        .box{
+            display: flex;
+            flex-flow: column wrap;
+            
+            border: 1px dashed red;
+        }
+
+* Justify Content
+    Usamos para alinhar a distribuição de objetos dentro de um container/box
+    seja na horizontal (flex-direction:row;) ou na vertical (flex-direction:column;)
+    As opções são:
+
+    justify-content: flex-start; - Alinha do canto esquerdo para o direto padrão (ex: |ABC-----|)
+    justify-content: flex-end; - Alinha no canto direto os itens na sequencia normal (ex: |-----ABC|)
+    justify-content: center; - Alinha no centro (ex: |-----ABC-----| )
+    justify-content: space-around; - espaça todos os objetos por igual, inclusive entre o inicio e o primeiro objeto (ex: |-A--B--C-| )
+    justify-content: space-between; - adiciona espaços iguais somente entre os objetos  (ex: |A--B--C| )
+    justify-content: space-evenly; - adiciona a mesma quantidade de espaços entre os cantos e objetos (ex: |-A-B-C-| )
+
+    CSS
+    .box{
+        display: flex;
+        justify-content: flex-end;
+        
+        border: 1px dashed red;
+    }
+
+* Align-items na vertical
+    Alinhamento no eixo cruzado
+    Ao usarmos o "display: flex;" para alinhar horizontalmente os elementos ficam esticados na vertical
+    Então usamos o "align-items: ;" para difinir como os itens serão alinhados
+    align-items: stretch; - Por padrão é o stretch, que estica os elementos
+    align-items: flex-start; - Alinha no canto superior direito
+    align-items: flex-end; - Alinha no canto inferior direito
+    align-items: center; - Centraliza os elementos no eixo Y de acordo com o tamanho do box
+
+* Gap
+    É o espaço entre os elentos do box
+    gap: 2px;
+    gap: 2pt;
+    gap: 2%;
+    gap: 2em;
+    gap: 2rem;
+
+    ex:
+
+    .box{
+        display:flex;
+        border: 1px dashed red;
+        gap: 2rem;
+    }
+
+* Flex Basis
+    Trabalha o distanciamento dos itens no eixo
+    O flex basics pode sobrepor o widht dependendo da largura setada
+    Para não sobrepor precisamos coloca-lo como auto
+    <div class="box">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+        <div>D</div>
+    </div>
+    Exemplo distanciando iguais para 4 elementos
+    .box{
+        display:flex;
+        border: 1px dashed red;
+    }
+    .box div {
+        border: 1px solid;
+        flex-basics: 25%;
+    }
+
+
+    Exemplo distanciamento do primeiro filho para o restante
+    CSS
+    .box{
+        display:flex;
+        border: 1px dashed red;
+    }
+    .box div {
+        border: 1px solid;
+        flex-basics: auto;
+    }
+    .box div:nth-child(1) {
+        width:250px;
+    }
+    Se mudarmos a direção do eixo para coluna ele aplicará para a altura
+    .box{
+        display:flex;
+        border: 1px dashed red;
+    }
+    .box div {
+        border: 1px solid;
+        flex-basics: auto;
+        flex-direction: column;
+    }
+    .box div:nth-child(1) {
+        width:250px;
+    }
+* Flex Grow
+    Preenche o espaço que está sobrando
+
+    flex-grow: 0; - O valor padrão é 0
+
+    flex-grow: 1; - O valor 1 ira tomar o espaço de sobra, se houver 2 elementos com flex-grow: 1
+    ele dividira por igual o espaço sobrando
+
+    flex-grow: 2; - O valor 2 toma o equivalente a 2 espaços de valor 1, por exemplo se tivermos um elemento com 1 e um com 2
+    o de valor 2 tomara 2/3 do espaço de sobra
+
+    Isso também se aplica na vertical com o column
+
+    Exemplo:
+    CSS
+    .box{
+        display:flex;
+        border: 1px dashed red;
+    }
+    .box div {
+        border: 1px solid;
+    }
+    .box div:nth-child(2),
+    .box div:nth-child(3) {
+        flex-grow: 1;
+    }
+    .box div:nth-child(1) {
+        flex-grow: 2;
+    }
+
+* Flex Shrink
+    Define as prioridades de espaço, aumentando e diminuindo os demais elementos para
+    comportar todos dentro do box
+    Isso também se aplica na vertical com column
+
+    flex-shrink: 0; - Ele terá prioridade sobre os de valores maiores
+    flex-shrink: 1; - Por padrão é 1
+    flex-shrink: 2; - Ele cederá boa parte do seu espaço para dar a quem tem mais prioridade
+    flex-shrink: 3; - Ele cederá mais espaço ainda para os outros elementos
+    flex-shrink: 4,5,6,etc; - Ele cederá o espaço que tiver sobrando ficando apenas com o conteudo visivel
+
+    .box{
+        display:flex;
+        border: 1px dashed red;
+    }
+    .box div {
+        flex-basics: 80px;
+        border: 1px solid;
+    }
+    .box div:nth-child(2),
+    .box div:nth-child(3) {
+        flex-shrink: 3;
+    }
+    .box div:nth-child(1) {
+        flex-shrink: 0;
+    }
+
+* Shorthand flex
+    O shorthand flex será feito com:
+    flex: grow shrink basics;
+    ex:
+    flex: 1 1 40px;
+
+    E se tivermos apenas duas propriedades ele entenderá como:
+    flex: grow shrink ou basics
+    O CSS interpreta se é um shrink ou basics no segundo elemento e aplica
+    ex basics:
+    flex: 1 40px;
+    ex shrink:
+    flex: 1 1;
+
+    exemplo completo:
+    .box{
+        display:flex;
+        border: 1px dashed red;
+    }
+    .box div {
+        border: 1px solid;
+        flex: 1 1 40px;
+    }
+
+* Aplicando o flex em diversos elementos
+    Nesse exemplo o aside e main dividem a largura por igual
+    dentro do main temos 3 section dividindo o espaço por igual
+    Para um elemento ganhar mais espaço precisamos aumentar o seu flex
+    ou seja, vamos alterar o seu grow para ter mais prioridade
+
+    <div class="page">
+        <aside>Aside</aside>
+        <main>
+            Main
+            <section>Content 1</section>
+            <section>Content 2</section>
+            <section>Content 3</section>
+        </main>
+    </div>
+
+    CSS
+    .page {
+        border: 2px solid;
+        min-height: 100vh;
+
+        display: flex;
+    }
+
+    aside {
+    background: lightgreen;
+    flex: 1;
+    }
+    main {
+    background: lightblue;
+    flex: 6;
+    display: flex;
+    flex-direction: column;
+    }
+    main section:nth-child(1) {
+    background: lightyellow;
+    flex: 1;
+    }
+    main section:nth-child(2) {
+    background: lightsalmon;
+    flex: 1;
+    }
+    main section:nth-child(3) {
+    background: lightpink;
+    flex: 1;
+    }
+
+* order
+    - Muda de maneira visual a ordem dos elementos, portanto
+    não vai alterar a ordem da declaração html
+
+    - Importante prestar atenção na acessibilidade, 
+    pois o html continuará na ordem sequencial da declaração dos elementos
+
+    Os valores do order mudam a sequencia seguindo:
+    menor -> maior
+    exemplo:
+    0 1 2 10 20 100
+    Portanto o menor numero ficará em primeiro e o maior em ultimo
+    Podemos usar numeros negativos, que colocará na primeira posição
+
+    <div class="box">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+        <div>D</div>
+    </div>
+
+    CSS
+
+    .box{
+        display:flex;
+        border: 1px dashed red;
+    }
+    .box div {
+        border: 1px solid;
+    }
+    .box div:nth-child(1) {
+        order: 1;
+    }
+    .box div:nth-child(2) {
+        order: 2;
+    }
+    .box div:nth-child(3) {
+        order: 10;
+    }
+    .box div:nth-child(4) {
+        order: 20;
+    }
+    
+* Desafios
+    Desafio 1 
+
+    <header>
+        <nav>
+          <a href="#">Logo</a>
+          <ul>
+            <li>HOME</li>
+            <li>ABOUT</li>
+            <li>SERVICES</li>
+            <li>TESTIMONIALS</li>
+            <li>Contact</li>
+           <ul>
+        </nav>
+      </header>
+
+      CSS
+
+      header {
+        padding: 4rem;
+        background: lightgrey;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      ul {
+        display: flex;
+        list-style: none;
+        gap: .8rem;
+        align-items: center;
+      }
+      ul li:nth-child(5){
+        background: blue;
+        color: white;
+        padding: .8rem;
+      }
+
+      Desafio 2 - 2 colunas
+
+      <div class="box">
+        <div class="col-1">1 coluna</div>
+        <div class="col-2">2 coluna</div>
+      </div>
+
+      CSS
+
+      .box{
+        display: flex;
+        gap: 1rem;
+        height: 100vh;
+      }
+      .col-1 {
+        flex-grow: 1;
+        background: lightgrey;
+        border: 1px solid grey;
+      }
+      .col-2 {
+        flex-grow: 3;
+        background: lightgrey;
+        border: 1px solid grey;
+      }
+
+      Desafio 3 - Imagens em blocos de 3x3
+
+      <div class="box">
+        <a>A</a>
+        <a>B</a>
+        <a>C</a>
+        <a>D</a>
+        <a>E</a>
+        <a>F</a>
+        <a>G</a>
+        <a>H</a>
+        <a>I</a>
+      </div>
+
+      .box{
+        display: flex;
+        gap: .8rem;
+        height: 100vh;
+        flex-wrap: wrap;
+        padding: 8em;
+      
+      }
+      a {
+        border: 1px solid grey;
+        text-align: center;
+        height: 100px;
+        width: 100px;
+      }
+    
+    Desafio 4 - Botão com imagem
+
+    <button>Button<img src="https://cdn.icon-icons.com/icons2/3991/PNG/512/square_on_right_top_arrow_arrow_icon_253906.png"></button>
+
+    CSS
+
+    button {
+        align-items: center;
+        display: flex;
+        
+        line-height: 0;
+        
+        gap: .4rem;
+        
+      }
+      button img {
+        width: 2rem;
+        height: 2rem;
+      }
+
+      Desafio 4 - Estilizando o Footer
+
+      <footer>2023</footer>
+
+      CSS
+
+      * {margin:0;}
+        body{
+        min-height: 100vh;
+        display: flex;
+        }
+        footer {
+        margin-top: auto;
+        
+        background: gray;
+        color: white;
+        
+        height: 8rem;
+        flex: 1;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
