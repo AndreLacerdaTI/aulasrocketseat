@@ -1,0 +1,12 @@
+{
+  "name": "rocketseat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./NodeJS/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

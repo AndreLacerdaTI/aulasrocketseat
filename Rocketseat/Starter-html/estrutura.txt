@@ -1,0 +1,30 @@
+<header>
+- É o cabeçalho da pagina
+- Não pode ser colocado um header dentro de outro header
+
+<nav>
+- Usado para a navegação principal do site
+- Não deve ser usado para navegações do rodapé
+
+<main>
+- Usar apenas um main para o site
+- Usar apenas para o conteudo principal do site, ou seja, não colocar anuncios, navegação, etc
+- Usar sempre depois do body, não colocar nenhuma tag antes
+
+<article>
+- São relacionados uns com os outros
+- Podem existir mais de um na mesma pagina
+- São usados por exemplo: para o conteudo de um post, blog ou artigo de uma revista
+
+<aside>
+- Usado por exemplo para criar glossarios
+- Podemos usar um dentro do <article> com uma explicação de termos
+e outro fora do <main> para linkar os termos a outros artigos
+
+<footer>
+- Geralmente contem informações como: autor, copyright, contato, sitemap, voltar ao topo
+
+<section>
+- Não devemos usar mais de um section dentro do main, 
+entretanto podemos utilizar varios <article> e colocar um <section> dentro
+
